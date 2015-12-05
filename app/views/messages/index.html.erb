@@ -3,7 +3,6 @@
         メッセージ一覧        
     </div>
 
-
     <div class="panel-body">
         <% @messages.each do |message| %>
             <span class="label label-info"><%= message.name %></span>
@@ -13,12 +12,27 @@
     </div>
 </div>
 
-<%= form_for(Message.new) do |f| %>
-    名前：
-    <%= f.text_field :name %>
-    
-    内容：
-    <%= f.text_field :body %>
-    <%= f.submit class: "btn btn-sm btn-primary" %>
+
+<%= form_for(Message.new, html:{class: "form-horizontal"})  do |f| %>
+    <div class="form-group">
+        <label for="name" class ="col-sm-1 control-label">名前：</label>
+        <div class="col-sm-5">
+            <%= f.text_field :name,class: "form-control",id:"name" %>
+        </div>
+        <div class="col-sm-6">
+        </div>
+    </div>
+    <div class="form-group">    
+        <label for="content" class ="col-sm-1 control-label">内容：</label>
+        <div class="col-sm-11">
+            <%= f.text_area :body,rows:10,class:"form-control",id:"content" %>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-11">
+            <%= f.submit class: "btn btn-sm btn-primary" %>
+        </div>
+    </div>
 <% end %>
+
 
