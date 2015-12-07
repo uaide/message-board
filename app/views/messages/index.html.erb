@@ -12,6 +12,9 @@
     </div>
 </div>
 
+<% #部分てんぷれーとを読み込んでいる %>
+<%= render 'form' %>
+
 <%= form_for(Message.new, html:{class: "form-horizontal"})  do |f| %>
      <% if @message.errors.present? %>
         <div class="alert alert-danger">
